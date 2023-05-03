@@ -61,6 +61,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'My API',
+    'DESCRIPTION': 'API documentation for my project',
+    'VERSION': '1.0.0',
+    'SWAGGER_UI_SETTINGS': {
+        'deepLinking': True,
+    },
+}
+
 ROOT_URLCONF = 'meliora.urls'
 
 AUTH_USER_MODEL = 'accounts.MyUser'
@@ -148,7 +157,7 @@ STATIC_ROOT = '/vol/web/static'
 
 
 
-CSRF_TRUSTED_ORIGINS=['*']
+CSRF_TRUSTED_ORIGINS=['http://91.107.207.100:81/']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
