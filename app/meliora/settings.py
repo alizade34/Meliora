@@ -147,10 +147,11 @@ STATIC_ROOT = '/vol/web/static'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 
+CSRF_TRUSTED_ORIGINS=['*']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-
+CSRF_COOKIE_SECURE = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
