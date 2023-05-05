@@ -47,9 +47,17 @@ INSTALLED_APPS = [
     'ckeditor',
     'rest_framework',
     'django_filters',
-    'drf_spectacular',
+    'drf_yasg',
     'corsheaders',
 ]
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {"basic": {"type": "basic"}},
+}
+
+REDOC_SETTINGS = {
+    "LAZY_RENDERING": False,
+}
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -100,23 +108,23 @@ DATABASES = {
     }
 }
 
-REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-}
-
-
-
-SPECTACULAR_SETTINGS = {
-    'TITLE': 'Your API',
-    'DESCRIPTION': 'API documentation for Your Project',
-    'VERSION': '1.0.0',
-    'SCHEMA_PATH_PREFIX': '/api',
-}
-
-SWAGGER_SETTINGS = {
-    'USE_SESSION_AUTH': False,
-    'SECURITY_DEFINITIONS': {},
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+# }
+#
+#
+#
+# SPECTACULAR_SETTINGS = {
+#     'TITLE': 'Your API',
+#     'DESCRIPTION': 'API documentation for Your Project',
+#     'VERSION': '1.0.0',
+#     'SCHEMA_PATH_PREFIX': '/api',
+# }
+#
+# SWAGGER_SETTINGS = {
+#     'USE_SESSION_AUTH': False,
+#     'SECURITY_DEFINITIONS': {},
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
