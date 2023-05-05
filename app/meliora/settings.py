@@ -162,7 +162,7 @@ STATIC_ROOT = '/vol/web/static'
 
 
 
-CSRF_TRUSTED_ORIGINS=['*']
+CSRF_TRUSTED_ORIGINS=['http://91.107.207.100:81/']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
