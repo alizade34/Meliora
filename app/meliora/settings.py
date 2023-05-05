@@ -165,6 +165,15 @@ STATIC_ROOT = '/vol/web/static'
 CSRF_TRUSTED_ORIGINS=['http://91.107.207.100:81/']
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
 
 CSRF_COOKIE_SECURE = True
 
