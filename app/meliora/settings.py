@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'core',
     'products',
+    'blogs',
 
     # third party apps
     'mptt',
