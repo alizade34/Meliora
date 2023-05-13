@@ -20,7 +20,7 @@ class ProductListView(generics.ListAPIView):
     filterset_class = ProductFilter
 
     def get_queryset(self):
-        return Product.objects.filter(user=self.request.user).annotate(
+        return Product.objects.annotate(
             discount=Coalesce('discount_price', 0, output_field=FloatField()),
             total_price=F("price")-F('discount')
         )
