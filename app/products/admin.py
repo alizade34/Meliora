@@ -1,24 +1,12 @@
 from django.contrib import admin
-from .models import Category, Product, ProductImage
+from .models import Category, Product, ProductImage, Size, MaterialType, MetalType
 # Register your models here.
 
 
 admin.site.register(Category)
-
-# class ProductImageAdmin(admin.StackedInline):
-#     model = ProductImage
-#     extra = 1
-#
-# class ProductAdmin(admin.ModelAdmin):
-#
-#     class Meta:
-#         model = Product
-#
-#     inlines = (ProductImageAdmin, )
-#
-#
-# admin.site.register(Product, ProductAdmin)
-
+admin.site.register(Size)
+admin.site.register(MaterialType)
+admin.site.register(MetalType)
 
 
 class ProductImageInline(admin.TabularInline):
