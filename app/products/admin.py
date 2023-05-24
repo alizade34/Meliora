@@ -5,19 +5,33 @@ from .models import Category, Product, ProductImage
 
 admin.site.register(Category)
 
-class ProductImageAdmin(admin.StackedInline):
+# class ProductImageAdmin(admin.StackedInline):
+#     model = ProductImage
+#     extra = 1
+#
+# class ProductAdmin(admin.ModelAdmin):
+#
+#     class Meta:
+#         model = Product
+#
+#     inlines = (ProductImageAdmin, )
+#
+#
+# admin.site.register(Product, ProductAdmin)
+
+
+
+class ProductImageInline(admin.TabularInline):
     model = ProductImage
-    extra = 1
 
+
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    inlines = [
+        ProductImageInline,
+    ]
 
-    class Meta:
-        model = Product
-
-    inlines = (ProductImageAdmin, )
-
-
-admin.site.register(Product, ProductAdmin)
+# admin.site.register(ProductImage)
 
 # class BasketAdmin(admin.ModelAdmin):
 #     list_display = ['product', 'user', 'quantity']

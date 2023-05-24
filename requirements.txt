@@ -43,3 +43,4 @@ wcwidth==0.2.6
 uwsgi
 django-js-asset==2.0.0
 django-mptt==0.14.0
+django-multifilefield==1.0

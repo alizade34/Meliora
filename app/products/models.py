@@ -29,17 +29,22 @@ class Product(DateMixin):
     color = models.CharField(blank=True, max_length=300)
     wishlist = models.ManyToManyField(User, blank=True, related_name='product_wishlist')
 
+
     def __str__(self) -> str:
         return self.name
 
 
-
 class ProductImage(DateMixin):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to=Uploader.upload_image_to_product)
-
     def __str__(self) -> str:
         return self.product.name
+
+
+
+
+
+
 
 
 # class Basket(DateMixin):
@@ -48,7 +53,7 @@ class ProductImage(DateMixin):
 #     quantity = models.PositiveIntegerField()
 #
 #     def __str__(self):
-#         return f"{self.user.email} --> {self.user.fullname}"
+#         return f"{self.user.email} --> {self.user.name}"
 #
 #     class Meta:
 #         ordering = ('-created_at', )

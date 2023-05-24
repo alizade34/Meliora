@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework import generics
 from products.models import Product
-from .serializers import ProductListSerializer, ProductCreateSerializer
+from .serializers import  ProductCreateSerializer, ProductSerializer
 from django.db.models import F, FloatField
 from django.db.models.functions import Coalesce
 from rest_framework import status
@@ -26,7 +26,7 @@ class ProductListView(generics.ListAPIView):
         )
 
     def get_serializer_class(self):
-        return ProductListSerializer
+        return ProductSerializer
 
 class ProductDetailView(generics.RetrieveAPIView):
     queryset = Product.objects.annotate(
@@ -35,7 +35,7 @@ class ProductDetailView(generics.RetrieveAPIView):
     ).all()
 
     def get_serializer_class(self):
-        return ProductListSerializer
+        return ProductSerializer
 
     def get_object(self):
         return self.queryset.get(id=int(self.kwargs.get("id")))
@@ -44,7 +44,7 @@ class ProductDetailView(generics.RetrieveAPIView):
 
 
 class ProductCreateView(generics.CreateAPIView):
-    serializer_class = ProductCreateSerializer
+    serializer_class = ProductSerializer
 
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
@@ -62,7 +62,7 @@ class ProductUpdateView(generics.UpdateAPIView):
         discount=Coalesce('discount_price', 0, output_field=FloatField()),
         total_price=F("price") - F('discount')
     ).all()
-    serializer_class = ProductListSerializer
+    serializer_class = ProductSerializer
     lookup_field = "id"
 
 
@@ -72,7 +72,7 @@ class ProductDeleteView(generics.DestroyAPIView):
         discount=Coalesce('discount_price', 0, output_field=FloatField()),
         total_price=F("price") - F('discount')
     ).all()
-    serializer_class = ProductListSerializer
+    serializer_class = ProductSerializer
     lookup_field = "id"
 
 

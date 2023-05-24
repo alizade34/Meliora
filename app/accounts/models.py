@@ -32,7 +32,8 @@ class MyUserManager(BaseUserManager):
 
 class MyUser(AbstractBaseUser):
     email = models.EmailField(unique=True, max_length=120)
-    fullname = models.CharField(max_length=40, blank=True, null=True)
+    name = models.CharField(max_length=40, blank=True, null=True)
+    surname = models.CharField(max_length=40, blank=True, null=True)
     logo = models.ImageField(upload_to=Uploader.upload_image_of_user, blank=True, null=True)
 
     slug = models.SlugField(unique=True)
@@ -60,7 +61,7 @@ class MyUser(AbstractBaseUser):
         return self.email
 
     def get_full_name(self):
-        return self.fullname
+        return self.name
 
     def has_perm(self, perm, obj=None):
         return self.is_superuser
