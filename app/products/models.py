@@ -38,12 +38,7 @@ class MaterialType(MPTTModel, DateMixin):
         return self.name
 
 
-class AA(MPTTModel, DateMixin):
-    name = models.CharField(max_length=50)
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
-    def __str__(self) -> str:
-        return self.name
 
 
 class Product(DateMixin):
