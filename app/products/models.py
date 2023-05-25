@@ -17,64 +17,64 @@ class Category(MPTTModel, DateMixin):
     def __str__(self) -> str:
         return self.name
 
-class Size(MPTTModel, DateMixin):
-    name = models.CharField(max_length=50)
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
-    def __str__(self) -> str:
-        return self.name
-
-class MetalType(MPTTModel, DateMixin):
-    name = models.CharField(max_length=50)
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
-
-    def __str__(self) -> str:
-        return self.name
-
-class MaterialType(MPTTModel, DateMixin):
-    name = models.CharField(max_length=50)
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
-
-    def __str__(self) -> str:
-        return self.name
-
+# class Size(MPTTModel, DateMixin):
+#     name = models.CharField(max_length=50)
+#     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+#     def __str__(self) -> str:
+#         return self.name
+#
+# class MetalType(MPTTModel, DateMixin):
+#     name = models.CharField(max_length=50)
+#     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+#
+#     def __str__(self) -> str:
+#         return self.name
+#
+# class MaterialType(MPTTModel, DateMixin):
+#     name = models.CharField(max_length=50)
+#     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+#
+#     def __str__(self) -> str:
+#         return self.name
+#
 
 
 
 
 class Product(DateMixin):
-    COLOR_CHOICES = [
-        ('R', 'Red'),
-        ('G', 'Green'),
-        ('B', 'Blue'),
-        ('W', 'White'),
-        ('WG', 'White Gold'),
-        ('P', 'Pink'),
-        ('PP', 'Purple'),
-        ('O', 'Orange'),
-        ('BW', 'Brown'),
-        ('B', 'Blue'),
-        ('Y', 'Yellow'),
-        ('YG', 'Yellow Gold'),
-        ('M', 'Mix'),
-        ('GR', 'Grey'),
-        ('BB', 'Black'),
-    ]
-
-    PROMOTION_CHOICES = [
-        ('on sale', 'on sale'),
-    ]
+    # COLOR_CHOICES = [
+    #     ('R', 'Red'),
+    #     ('G', 'Green'),
+    #     ('B', 'Blue'),
+    #     ('W', 'White'),
+    #     ('WG', 'White Gold'),
+    #     ('P', 'Pink'),
+    #     ('PP', 'Purple'),
+    #     ('O', 'Orange'),
+    #     ('BW', 'Brown'),
+    #     ('B', 'Blue'),
+    #     ('Y', 'Yellow'),
+    #     ('YG', 'Yellow Gold'),
+    #     ('M', 'Mix'),
+    #     ('GR', 'Grey'),
+    #     ('BB', 'Black'),
+    # ]
+    #
+    # PROMOTION_CHOICES = [
+    #     ('on sale', 'on sale'),
+    # ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    size = models.ForeignKey(Size, on_delete=models.CASCADE, blank=True, null=True)
-    metal_type = models.ForeignKey(MetalType, on_delete=models.CASCADE, blank=True, null=True)
-    material_type = models.ForeignKey(MaterialType, on_delete=models.CASCADE, blank=True, null=True)
+    # size = models.ForeignKey(Size, on_delete=models.CASCADE, blank=True, null=True)
+    # metal_type = models.ForeignKey(MetalType, on_delete=models.CASCADE, blank=True, null=True)
+    # material_type = models.ForeignKey(MaterialType, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=300)
     description = RichTextField(blank=True, null=True)
     price = models.FloatField()
     discount_price = models.FloatField(blank=True, null=True)
     type = models.CharField(blank=True, max_length=300)
-    color = models.CharField(blank=True, max_length=300, choices=COLOR_CHOICES)
-    promotion = models.CharField(blank=True, max_length=300, choices=PROMOTION_CHOICES)
+    # color = models.CharField(blank=True, max_length=300, choices=COLOR_CHOICES)
+    # promotion = models.CharField(blank=True, max_length=300, choices=PROMOTION_CHOICES)
     wishlist = models.ManyToManyField(User, blank=True, related_name='product_wishlist')
 
 
