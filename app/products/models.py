@@ -89,21 +89,3 @@ class ProductImage(DateMixin):
         return self.product.name
 
 
-
-
-
-
-
-
-# class Basket(DateMixin):
-#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     quantity = models.PositiveIntegerField()
-#
-#     def __str__(self):
-#         return f"{self.user.email} --> {self.user.name}"
-#
-#     class Meta:
-#         ordering = ('-created_at', )
-#         verbose_name = 'Basket'
-#         verbose_name_plural = 'Basket'

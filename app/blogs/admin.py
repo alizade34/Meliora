@@ -1,9 +1,14 @@
-from .models import Post
+from .models import Post, PostImage
 from django.contrib import admin
 
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author',]
-    search_fields = ['title',]
-    list_filter = ['author', ]
+class PostImageInline(admin.TabularInline):
+    model = PostImage
 
+@admin.register(Post)
+class ProductAdmin(admin.ModelAdmin):
+    inlines = [
+        PostImage,
+    ]
+    list_display = ['title', 'author', ]
+    search_fields = ['title', ]
+    list_filter = ['author', ]

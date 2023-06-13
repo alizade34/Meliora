@@ -13,9 +13,13 @@ class Post(DateMixin):
     text = RichTextField(blank=True, null=True)
     author = models.CharField(blank=True, null=True, max_length=255)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    image = models.ImageField(upload_to=Uploader.upload_image_of_blog, blank=True, null=True)
+
 
     def __str__(self):
-        return self.title
+        return self.author
 
-
+class PostImage(DateMixin):
+    author = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to=Uploader.upload_image_of_blog, blank=True, null=True)
+    def __str__(self) -> str:
+        return self.author
