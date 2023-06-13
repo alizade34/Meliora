@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class Post(DateMixin):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=255)
     content = RichTextField(blank=True, null=True)
     text = RichTextField(blank=True, null=True)
     author = models.CharField(blank=True, null=True, max_length=255)
