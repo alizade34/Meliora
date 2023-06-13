@@ -14,4 +14,4 @@ class Uploader:
         return f"generalsettings/{filename}"
 
     def upload_image_of_blog(instance, filename):
-        return f"blogs/{instance.id}/{filename}"
+        return f"blogs/{instance.author}/{filename}"

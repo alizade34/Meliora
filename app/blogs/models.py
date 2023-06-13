@@ -22,4 +22,4 @@ class PostImage(DateMixin):
     author = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to=Uploader.upload_image_of_blog, blank=True, null=True)
     def __str__(self) -> str:
-        return self.author
+        return str(self.author)
