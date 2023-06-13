@@ -5,7 +5,7 @@ class PostImageInline(admin.TabularInline):
     model = PostImage
 
 @admin.register(Post)
-class ProductAdmin(admin.ModelAdmin):
+class PostAdmin(admin.ModelAdmin):
     inlines = [
         PostImage,
     ]
