@@ -7,7 +7,7 @@ class PostImageInline(admin.TabularInline):
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     inlines = [
-        PostImage,
+        PostImageInline,
     ]
     list_display = ['title', 'author', ]
     search_fields = ['title', ]
