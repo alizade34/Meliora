@@ -12,3 +12,6 @@ class Uploader:
 
     def upload_image_of_logo(instance, filename):
         return f"generalsettings/{filename}"
+
+    def upload_image_of_blog(instance, filename):
+        return f"blogs/{instance.title}/{filename}"
