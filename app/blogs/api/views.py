@@ -1,13 +1,13 @@
 from rest_framework import generics
 from blogs.models import Post
-from .serializers import PostSerializer
+from .serializers import PostSerializer, PostListSerializer
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from .permissions import IsOwnerOrReadOnly
 
 
 class PostListAPIView(generics.ListAPIView):
     queryset = Post.objects.all()
-    serializer_class = PostSerializer
+    serializer_class = PostListSerializer
 
 
 class PostCreateAPIView(generics.CreateAPIView):
