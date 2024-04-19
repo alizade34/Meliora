@@ -108,6 +108,9 @@ DATABASES = {
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASS'),
         'PORT': os.environ.get('DB_PORT', '5432'),
+        # 'OPTIONS': {
+        #     'service': 'db',
+        # },
     }
 }
 # DATABASES = {
@@ -116,7 +119,7 @@ DATABASES = {
 #         'NAME': 'db',
 #         'USER': 'postgres',
 #         'PASSWORD': 'admin',
-#         'HOST': '127.0.0.1',
+#         'HOST': 'localhost',
 #         'PORT': '5432',
 #     }
 # }
